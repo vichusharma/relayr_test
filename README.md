@@ -100,24 +100,28 @@ ingress-service   <none>   adminer.k8s.com,kanban.k8s.com   172.17.27.250   80  
 
 ## All the items which are running now on the minikube 
 
-PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get all -n default                                                                                                                                                                         NAME                              READY   STATUS    RESTARTS   AGE
+PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get all -n default                                                                                                              NAME                              READY   STATUS    RESTARTS   AGE
 pod/kanban-app-6c4d97ff87-q7vkb   1/1     Running   2          20h
 pod/kanban-ui-7f7c5f974d-hwlf5    1/1     Running   3          20h
 pod/postgres-69dc848d8-2ljnc      1/1     Running   1          20h
+
 NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 service/kanban-app   ClusterIP   10.96.227.101   <none>        8080/TCP   20h
 service/kanban-ui    ClusterIP   10.98.140.117   <none>        8080/TCP   20h
 service/kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP    20h
 service/postgres     ClusterIP   10.100.94.47    <none>        5432/TCP   20h
+
 NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/kanban-app   1/1     1            1           20h
 deployment.apps/kanban-ui    1/1     1            1           20h
 deployment.apps/postgres     1/1     1            1           20h
+
 NAME                                    DESIRED   CURRENT   READY   AGE
 replicaset.apps/kanban-app-6c4d97ff87   1         1         1       20h
 replicaset.apps/kanban-ui-7f7c5f974d    1         1         1       20h
 replicaset.apps/postgres-69dc848d8      1         1         1       20h
-PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get all -n ingress-nginx                                                                                                       NAME                                            READY   STATUS    RESTARTS   AGE
+
+NAME                                            READY   STATUS    RESTARTS   AGE
 pod/nginx-ingress-controller-54b86f8f7b-8xjgp   1/1     Running   1          21h
 
 NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE
@@ -125,9 +129,11 @@ deployment.apps/nginx-ingress-controller   1/1     1            1           21h
 
 NAME                                                  DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-ingress-controller-54b86f8f7b   1         1         1       21h
-PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get pvc                                                                                                                          NAME                                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+
+NAME                                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 postgres-persistent-volume-claim    Bound    pvc-9f892a4e-5f5f-4ebc-8c3d-e89cc984abfd   4Gi        RWO            standard       21h
-PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get cm                                                                                                                         NAME              DATA   AGE
+
+NAME              DATA   AGE
 postgres-config   3      20h
 
 
