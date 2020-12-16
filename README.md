@@ -103,6 +103,10 @@ an ingress, as you remember from pre-requisite we installed ngingx ingress contr
 
 ### To deploy Ingress to access the application out side 
 
+Before we can run this helm chart we need to download the dependency of this helm 
+
+``helm dependency update ./ingress/```
+
 ```helm install -f ingress.yaml ingress ./ingress```
 
 **Which will create following resources**
