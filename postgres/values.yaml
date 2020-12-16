@@ -13,7 +13,7 @@ postgres:
     kind: PersistentVolumeClaim
     mountPath: /var/lib/postgresql/data
     pvc:
-      name: postgres-persistent-volume-claim2
+      name: postgres-persistent-volume-claim
       accessMode: ReadWriteOnce
       storage: 4Gi
   config:
