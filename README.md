@@ -85,6 +85,17 @@ PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get svc kanban-app            
 kanban-app   ClusterIP   10.96.227.101   <none>        8080/TCP   20h
 ```
 
+### To deploy adminer interface to DB run the following command 
+```helm install -f .\adminer.yaml adminer .\app```
+
+**How to Verify**
+
+```PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get deployments adminer                                                                                                                                                                    NAME      READY   UP-TO-DATE   AVAILABLE   AGE
+adminer   1/1     1            1           18s
+PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get svc adminer                                                                                                                                                                            NAME      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+adminer   ClusterIP   10.110.190.242   <none>        8080/TCP   23s
+```
+
 With this all the services and deployments done the application is avilable on the minikube but you can't access this outside the Kubernetes cluster to do this we need to deploy 
 an ingress, as you remember from pre-requisite we installed ngingx ingress controller and enable minikube plugin of ingress. 
 
