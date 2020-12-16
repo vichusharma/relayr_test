@@ -1,3 +1,5 @@
+Took the app from here All credit to https://github.com/wkrzywiec/kanban-board 
+
 # This set of helm charts deploy the following 
 
 1. A postgress database with a persistant volume of 4GB 
