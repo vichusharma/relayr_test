@@ -27,7 +27,7 @@ All the files are bough together by use of Helm and varaiblizing various deploym
 
 ### To deploy Postgress run the following command
 
-helm install -f kanban-postgres.yaml postgres ./postgres
+```helm install -f kanban-postgres.yaml postgres ./postgre```
 
 Which will create following resources
 1. A persistent volume claim 
@@ -37,7 +37,7 @@ Which will create following resources
 
 **How to Verify**
 
-PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get cm                                                                                                                                                                                     NAME              DATA   AGE
+```PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get cm                                                                                                                                                                                     NAME              DATA   AGE
 postgres-config   3      20h
 
 PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get deployment postgres
@@ -51,9 +51,10 @@ postgres   ClusterIP   10.100.94.47   <none>        5432/TCP   20h
 PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get pvc
 NAME                                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 postgres-persistent-volume-claim    Bound    pvc-9f892a4e-5f5f-4ebc-8c3d-e89cc984abfd   4Gi        RWO            standard       20h
+```
 
 ### To deploy Kanaban UI run the following command
-helm install -f kanban-ui.yaml kanban-ui ./app
+```helm install -f kanban-ui.yaml kanban-ui ./app```
 
 Which will create following resources
 
@@ -61,15 +62,15 @@ Which will create following resources
 2. Service with name kanban-ui 
 
 **How to Verify** 
-
+```
 PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get svc kanban-ui                                                                                                               NAME        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 kanban-ui   ClusterIP   10.98.140.117   <none>        8080/TCP   20h
 PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get deployment kanban-ui                                                                                                        NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 kanban-ui   1/1     1            1           20h
-
+```
 ### To deploy Kanaban Backend run the following command
 
-helm install -f kanban-app.yaml kanban-app ./app
+```helm install -f kanban-app.yaml kanban-app ./app```
 
 Which will create following resources 
 
@@ -77,29 +78,30 @@ Which will create following resources
 2. Service with name kanban-app
 
 **How to Verify**
-
+```
 PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get deployment kanban-app                                                                                                       NAME         READY   UP-TO-DATE   AVAILABLE   AGE
 kanban-app   1/1     1            1           20h
 PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get svc kanban-app                                                                                                             NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 kanban-app   ClusterIP   10.96.227.101   <none>        8080/TCP   20h
-PS C:\Vishnu\Kube_lab\Relayr\Relayr_test>                                                                                                                                                                                                                                                                                           
+```
 
 With this all the services and deployments done the application is avilable on the minikube but you can't access this outside the Kubernetes cluster to do this we need to deploy 
 an ingress, as you remember from pre-requisite we installed ngingx ingress controller and enable minikube plugin of ingress. 
 
 ### To deploy Ingress to access the application out side 
 
-helm install -f ingress.yaml ingress ./ingress
+```helm install -f ingress.yaml ingress ./ingress
+```
 
 **Which will create following resources**
-
+```
 PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get ingress                                                                                                                     
 NAME              CLASS    HOSTS                            ADDRESS         PORTS   AGE
 ingress-service   <none>   adminer.k8s.com,kanban.k8s.com   172.17.27.250   80      21h
-
+```
 
 ## All the items which are running now on the minikube 
-
+```
 PS C:\Vishnu\Kube_lab\Relayr\Relayr_test> kubectl get all -n default                                                                                                              NAME                              READY   STATUS    RESTARTS   AGE
 pod/kanban-app-6c4d97ff87-q7vkb   1/1     Running   2          20h
 pod/kanban-ui-7f7c5f974d-hwlf5    1/1     Running   3          20h
@@ -135,5 +137,5 @@ postgres-persistent-volume-claim    Bound    pvc-9f892a4e-5f5f-4ebc-8c3d-e89cc98
 
 NAME              DATA   AGE
 postgres-config   3      20h
-
+```
 
