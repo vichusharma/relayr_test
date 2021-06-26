@@ -5,7 +5,7 @@ metadata:
   labels: 
     group: {{ .Values.postgres.group }}
 spec:
-  type: {{ .Values.postgres.Service.type }}
+  type: {{ .Values.postgres.service.type }}
   selector:             
     app: {{ .Values.postgres.name }}
   ports:
